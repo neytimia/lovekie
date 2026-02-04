@@ -2,72 +2,121 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Для моей Женечки ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для моей Женечки! ❤️</title>
     <style>
         body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Чтобы сайт не листался */
-    
-    background-image: url https://media1.tenor.com/m/S6yyhB03pysAAAAC/drunk-goal.gif; 
-    background-size: cover; /* Растягивает фон на весь экран */
-    background-position: center; /* Центрирует картинку */
-    background-repeat: no-repeat; /* Чтобы картинка не дублировалась как обои */
-}
-        }
-
-        .screen {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Запрещаем скролл, всё на одном экране */
+            font-family: Arial, sans-serif; /* Простой шрифт, можно потом поменять */
+            color: #fff; /* Цвет текста */
+            display: flex; /* Чтобы элементы располагались гибко */
+            justify-content: center; /* Центрируем по горизонтали */
+            align-items: center; /* Центрируем по вертикали */
             position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        /* Это "Наклейки" (твои гифки и фото) */
-        .sticker {
-            position: absolute; /* Позволяет двигать куда угодно */
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .sticker:hover {
-            transform: scale(1.1) rotate(5deg); /* Оживает при наведении */
-        }
-
-        /* Примеры позиций для твоих штук */
-        #photo1 { top: 10%; left: 5%; width: 200px; z-index: 2; }
-        #gif1 { bottom: 5%; right: 10%; width: 150px; z-index: 3; }
-        #main-text { z-index: 10; font-size: 3rem; color: white; text-shadow: 2px 2px #ff00ff; }
-        
-        .button {
+        /* ФОНОВАЯ ГИФКА */
+        .background-gif {
             position: absolute;
-            bottom: 20%;
-            padding: 10px 20px;
-            background: white;
-            border: 3px solid #ff00ff;
-            border-radius: 20px;
-            text-decoration: none;
-            color: #ff00ff;
-            font-weight: bold;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Растягивает гифку на весь экран */
+            z-index: -1; /* Отправляет гифку на самый задний план */
+            filter: brightness(0.8); /* Делает фон чуть темнее, чтобы текст было лучше видно */
         }
+
+        /* ОСНОВНОЙ ТЕКСТ */
+        .main-message {
+            position: absolute;
+            text-align: center;
+            font-weight: bold; /* ЖИРНЫЙ ТЕКСТ */
+            font-size: 2.2vw; /* Размер текста, чтобы он подстраивался под размер экрана */
+            line-height: 1.3; /* Межстрочный интервал */
+            color: #ffe0f0; /* Розовый цвет текста */
+            text-shadow: 2px 2px 8px rgba(255, 0, 150, 0.7); /* Свечение текста */
+            z-index: 10; /* Поверх гифок */
+            max-width: 80%; /* Ограничивает ширину текста */
+            top: 15%; /* Отступ сверху */
+            left: 50%; /* Центрируем */
+            transform: translateX(-50%); /* Точная центровка */
+        }
+
+        /* СТИЛЬ ДЛЯ ГИФОК-УКРАШЕНИЙ */
+        .decoration-gif {
+            position: absolute;
+            transition: transform 0.3s ease-in-out; /* Анимация при наведении */
+            pointer-events: none; /* Гифки не будут реагировать на клики */
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* Небольшое свечение */
+        }
+        .decoration-gif:hover {
+            transform: scale(1.05) rotate(3deg); /* Чуть увеличится и повернется */
+        }
+
+        /* СТИЛЬ ДЛЯ КНОПОК-ГИФОК (на которые можно нажимать) */
+        .button-gif {
+            position: absolute;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer; /* Курсор меняется на "руку" */
+            filter: drop-shadow(0 0 8px rgba(255, 0, 150, 0.8)); /* Сильное свечение для кнопок */
+            border-radius: 10px; /* Скругляем углы */
+        }
+        .button-gif:hover {
+            transform: scale(1.1); /* Сильнее увеличится при наведении */
+        }
+
+        /* Отдельные позиции для КАЖДОЙ гифки и кнопки */
+        /* --- ДЕКОРАТИВНЫЕ ГИФКИ --- */
+        #dec-gif-1 { top: 5%; left: 5%; width: 120px; }
+        #dec-gif-2 { bottom: 8%; right: 12%; width: 150px; }
+        #dec-gif-3 { top: 20%; right: 8%; width: 100px; transform: rotate(15deg); }
+        #dec-gif-4 { bottom: 2%; left: 20%; width: 90px; }
+        #dec-gif-5 { top: 50%; left: 3%; width: 110px; transform: rotate(-10deg); }
+        #dec-gif-6 { bottom: 50%; right: 5%; width: 130px; }
+
+        /* --- ГИФКИ-КНОПКИ --- */
+        #btn-gif-1 { top: 40%; left: 15%; width: 180px; } /* Кнопка "Воспоминания" */
+        #btn-gif-2 { bottom: 30%; right: 25%; width: 200px; } /* Кнопка "Секретики" */
+        #btn-gif-3 { top: 30%; right: 15%; width: 160px; } /* Кнопка "Рисунки" */
+        #btn-gif-4 { bottom: 15%; left: 10%; width: 170px; } /* Кнопка "Мечты" */
+
     </style>
 </head>
 <body>
 
-    <div class="screen">
-        <h1 id="main-text">ЖЕНЕЧКА, ТЫ ЛУЧШАЯ! ✨</h1>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/d1oT9Mydk6u294yA/giphy.gif" alt="Sparkly Background" class="background-gif">
 
-        <img id="photo1" class="sticker" src="https://media.tenor.com/7lLkWw2WGW0AAAAi/sanrio-my-melody.gif" alt="heart">
-        
-        <img id="gif1" class="sticker" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9qZnd4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKoWXlo3uGu9yA0/giphy.gif" alt="stars">
-
-        <a href="memories.html" class="button" style="right: 30%;">Наши моменты →</a>
-        <a href="secret.html" class="button" style="left: 30%;">Секретик ←</a>
+    <div class="main-message">
+        Happy Valentine's Day and Welcome my darling!!<br>
+        Я никогда в жизни не делала сайты и даже что-нибудь близкое к этому. But I hope you would like it!!<br>
+        Enjoy, sweetie))
     </div>
+
+    <img id="dec-gif-1" class="decoration-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xT0xeQ8H4u44F690Va/giphy.gif" alt="Cute Heart">
+    <img id="dec-gif-2" class="decoration-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/L0co28fK28uM4/giphy.gif" alt="Sparkle">
+    <img id="dec-gif-3" class="decoration-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jYd6z7xK4Mv713hDkK/giphy.gif" alt="Star">
+    <img id="dec-gif-4" class="decoration-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eM7K37e64w03F0f1fT/giphy.gif" alt="Pink Cloud">
+    <img id="dec-gif-5" class="decoration-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/hGYY3Q73Kj7B3/giphy.gif" alt="Cute Bear">
+    <img id="dec-gif-6" class="decoration-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l4FGobhXFm631P7tS/giphy.gif" alt="Heart with Arrow">
+
+
+    <a href="memories.html">
+        <img id="btn-gif-1" class="button-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/L3K4sL6F4cM2f12D2l/giphy.gif" alt="Memories Button">
+    </a>
+    <a href="secrets.html">
+        <img id="btn-gif-2" class="button-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kK07iA6r4M9QfW02D5/giphy.gif" alt="Secrets Button">
+    </a>
+    <a href="drawings.html">
+        <img id="btn-gif-3" class="button-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/n122x0TqR0b08/giphy.gif" alt="Drawings Button">
+    </a>
+    <a href="dreams.html">
+        <img id="btn-gif-4" class="button-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1NHNmdDVrbW9zY3h6bGJocWwxMmpidGRzdDFtb3YxcGdwZHdjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xT0xeBf5U6vP7YpG4/giphy.gif" alt="Dreams Button">
+    </a>
 
 </body>
 </html>
