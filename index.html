@@ -1,41 +1,70 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>LOVEkie</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: Qilka, sans-serif;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
-      font-size: 40px;
-    }
-    p {
-      font-size: 20px;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Для моей Женечки ❤️</title>
+    <style>
+        /* Это настройки того, как выглядит сайт */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* ЗАПРЕЩАЕМ ЛИСТАТЬ */
+            background: pink; /* Сюда можно поставить картинку-фон */
+            font-family: 'Comic Sans MS', cursive; /* Стиль текста */
+        }
+
+        .screen {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Это "Наклейки" (твои гифки и фото) */
+        .sticker {
+            position: absolute; /* Позволяет двигать куда угодно */
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .sticker:hover {
+            transform: scale(1.1) rotate(5deg); /* Оживает при наведении */
+        }
+
+        /* Примеры позиций для твоих штук */
+        #photo1 { top: 10%; left: 5%; width: 200px; z-index: 2; }
+        #gif1 { bottom: 5%; right: 10%; width: 150px; z-index: 3; }
+        #main-text { z-index: 10; font-size: 3rem; color: white; text-shadow: 2px 2px #ff00ff; }
+        
+        .button {
+            position: absolute;
+            bottom: 20%;
+            padding: 10px 20px;
+            background: white;
+            border: 3px solid #ff00ff;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #ff00ff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Женечка!!</h1>
-    <p>
-      Этот маленький сайт я сделала специально для тебя:3<br>
-      Пусть он напоминает тебе о нас и наших моментах!
-    </p>
-    <p>
-      Я тебя безумно люблю
-    </p>
-  </div>
+
+    <div class="screen">
+        <h1 id="main-text">ЖЕНЕЧКА, ТЫ ЛУЧШАЯ! ✨</h1>
+
+        <img id="photo1" class="sticker" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9qZnd4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/L40pD0JzWXs3C2uV4z/giphy.gif" alt="heart">
+        
+        <img id="gif1" class="sticker" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9qZnd4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKoWXlo3uGu9yA0/giphy.gif" alt="stars">
+
+        <a href="memories.html" class="button" style="right: 30%;">Наши моменты →</a>
+        <a href="secret.html" class="button" style="left: 30%;">Секретик ←</a>
+    </div>
+
 </body>
 </html>
